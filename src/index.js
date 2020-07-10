@@ -1,7 +1,5 @@
-import * as React from 'react'
+import React from 'react'
 
-function MyComponent({ ...props }) {
-  return <button {...props}>This is a button!!!</button>
+export function Button({ ...props }) {
+  return <button {...props} />
 }
-
-export default MyComponent
