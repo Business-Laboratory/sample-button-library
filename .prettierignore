@@ -1,0 +1,10 @@
+.eslintignore
+.eslintrc
+.prettierignore
+.prettierrc
+
+dist/
+package.json
+package-lock.json
+
+node_modules/
