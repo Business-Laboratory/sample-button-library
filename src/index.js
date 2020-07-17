@@ -1,5 +1,3 @@
-import React from 'react'
+import { Button } from './Button'
 
-export function Button({ ...props }) {
-  return <button {...props} />
-}
+export { Button }
