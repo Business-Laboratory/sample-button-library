@@ -6,6 +6,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import postcss from 'rollup-plugin-postcss'
 import filesize from 'rollup-plugin-filesize'
 import autoprefixer from 'autoprefixer'
+import tailwindcss from 'tailwindcss'
 
 import pkg from './package.json'
 
@@ -21,7 +22,7 @@ const GLOBALS = {
 const PLUGINS = [
   postcss({
     extract: true,
-    plugins: [autoprefixer],
+    plugins: [autoprefixer, tailwindcss],
   }),
   babel({
     babelHelpers: 'runtime',
