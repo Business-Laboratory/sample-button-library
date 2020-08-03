@@ -1,14 +1,12 @@
 import React from 'react'
-import { Button } from './'
+import { Main, Button } from './'
 
 export default { title: 'My Button' }
 
-export const withText = () => <Button>Hello Button</Button>
-
-export const withEmoji = () => (
-  <Button>
-    <span role="img" aria-label="so cool">
-      😀 😎 👍 💯
-    </span>
-  </Button>
+export const inMain = () => (
+  <Main>
+    <Button className="col-start-4 col-end-6 h-8 bg-orange-300">
+      Hello Button
+    </Button>
+  </Main>
 )
