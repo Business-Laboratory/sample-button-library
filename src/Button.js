@@ -16,8 +16,6 @@ export function Button(props) {
   const colors = getColors(color)
   const background = getBackground(colors, isPressed, isHovered)
 
-  console.log({ background, borderWidth, border: colors.border })
-
   return (
     <button
       className={classNames(

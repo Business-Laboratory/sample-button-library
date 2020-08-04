@@ -1,11 +1,6 @@
-import React from 'react'
-import useDimensions from 'react-use-dimensions'
+import React, { forwardRef } from 'react'
 
-export function Main({ children }) {
-  const [ref, { width }] = useDimensions()
-
-  const nCols = width > 1024 ? 12 : width > 768 ? 8 : 4
-
+export const Main = forwardRef(function Main({ children }, ref) {
   return (
     <main
       ref={ref}
@@ -15,10 +10,7 @@ export function Main({ children }) {
        gap-4 md:gap-6 lg:gap-6
       "
     >
-      {children ??
-        Array.from({ length: nCols }).map((_, idx) => (
-          <div key={idx} className="bg-gray-200" />
-        ))}
+      {children}
     </main>
   )
-}
+})
