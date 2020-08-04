@@ -7,6 +7,11 @@ module.exports = {
     'src/**/*.tsx',
   ],
   theme: {
+    screens: {
+      sm: '360px',
+      md: '720px',
+      lg: '1440px',
+    },
     extend: {
       colors: {
         'matisse-red': {
