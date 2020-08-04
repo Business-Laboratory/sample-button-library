@@ -3,21 +3,9 @@ import { Main, Button } from '..'
 import useNumberOfCols from '../useNumberOfCols'
 import { withKnobs, boolean, select } from '@storybook/addon-knobs'
 
-export default { title: 'My Button', decorators: [withKnobs] }
+export default { title: 'Button', decorators: [withKnobs] }
 
-export const NormalButton = () => {
-  const { ref, nCols } = useNumberOfCols()
-
-  return (
-    <Main ref={ref}>
-      <Button className={`${getColRange(nCols)} h-12`} color="copper">
-        Button
-      </Button>
-    </Main>
-  )
-}
-
-export const ButtonWithKnobs = () => {
+export const Default = () => {
   const { ref, nCols } = useNumberOfCols()
 
   const label = 'Colors'

@@ -18,6 +18,8 @@ function Button(props, ref) {
   const colors = getColors(color)
   const background = getBackground(colors, isPressed, isHovered)
 
+  console.log(mergeProps(buttonProps, hoverProps, focusProps))
+
   return (
     <button
       className={classNames(
