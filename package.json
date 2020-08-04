@@ -36,6 +36,11 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.10.5",
+    "@react-aria/button": "^3.1.0",
+    "@react-aria/focus": "^3.1.0",
+    "@react-aria/interactions": "^3.1.0",
+    "@react-aria/utils": "^3.1.0",
+    "classnames": "^2.2.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-use-dimensions": "^1.2.1",
