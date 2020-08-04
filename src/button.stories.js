@@ -9,7 +9,11 @@ export const NormalButton = () => {
 
   return (
     <Main ref={ref}>
-      <Button color="copper" className={`${getColRange(nCols)} h-12`}>
+      <Button
+        className={`${getColRange(nCols)} h-12`}
+        color="matisse-red"
+        disabled={true}
+      >
         Button
       </Button>
     </Main>

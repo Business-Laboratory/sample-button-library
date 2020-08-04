@@ -6,28 +6,54 @@ import { useFocusRing } from '@react-aria/focus'
 import { mergeProps } from '@react-aria/utils'
 
 export function Button(props) {
-  const { className, color = 'copper', children } = props
+  const { className, color = 'copper', disabled = false, children } = props
   const ref = useRef()
-  const { buttonProps, isPressed } = useButton(props, ref)
+  const { buttonProps, isPressed } = useButton(convertProps(props), ref)
   const { hoverProps, isHovered } = useHover({ onHoverStart: () => {} })
   let { isFocusVisible, focusProps } = useFocusRing()
 
   const borderWidth = isFocusVisible ? 'border-4' : 'border-2'
   const colors = getColors(color)
-  const background = getBackground(colors, isPressed, isHovered)
+  const background = getBackground(
+    colors,
+    isPressed,
+    disabled ? false : isHovered // if disabled, then don't have the hover state
+  )
 
   return (
     <button
       className={classNames(
         className,
-        'uppercase focus:outline-none',
+        'relative uppercase focus:outline-none',
         `${background} ${borderWidth} ${colors.border}`
       )}
       {...mergeProps(buttonProps, hoverProps, focusProps)}
+      disabled={disabled}
     >
       {children}
+      {disabled ? <DisabledOverlay borderWidth={borderWidth} /> : null}
     </button>
   )
+}
+
+function DisabledOverlay({ borderWidth }) {
+  const borderWidthN = borderWidth.replace('border-', '')
+  return (
+    <div
+      className="absolute bg-gray-red-200 opacity-50"
+      style={{
+        top: `-${borderWidthN}px`,
+        left: `-${borderWidthN}px`,
+        width: `calc(100% + 2*${borderWidthN}px)`,
+        height: `calc(100% + 2*${borderWidthN}px)`,
+      }}
+    />
+  )
+}
+
+// changes the name of any props that need to be changed
+function convertProps(props) {
+  return { ...props, isDisabled: props.disabled }
 }
 
 // takes in a colorPrefix and returns a className with all of the styles applied
