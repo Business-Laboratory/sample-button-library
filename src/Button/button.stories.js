@@ -1,15 +1,31 @@
 import React from 'react'
 import { Main, Button } from '..'
 import useNumberOfCols from '../useNumberOfCols'
+import { withKnobs, boolean, select } from '@storybook/addon-knobs'
 
-export default { title: 'My Button' }
+export default { title: 'Button', decorators: [withKnobs] }
 
-export const NormalButton = () => {
+export const Default = () => {
   const { ref, nCols } = useNumberOfCols()
+
+  const label = 'Colors'
+  const options = [
+    'copper',
+    'matisse-red',
+    'scout-green',
+    'lichen-green',
+    'matisse-blue',
+    'calico-orange',
+  ]
+  const defaultValue = 'copper'
 
   return (
     <Main ref={ref}>
-      <Button className={`${getColRange(nCols)} h-12`} color="copper">
+      <Button
+        className={`${getColRange(nCols)} h-12`}
+        color={select(label, options, defaultValue)}
+        disabled={boolean('Disabled', false)}
+      >
         Button
       </Button>
     </Main>
