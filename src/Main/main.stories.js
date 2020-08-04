@@ -1,6 +1,6 @@
 import React from 'react'
-import { Main } from './'
-import useNumberOfCols from './useNumberOfCols'
+import { Main } from '..'
+import useNumberOfCols from '../useNumberOfCols'
 
 export default { title: 'Main' }
 

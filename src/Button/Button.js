@@ -1,24 +1,22 @@
-import React, { useRef } from 'react'
+import React, { forwardRef } from 'react'
 import classNames from 'classnames'
 import { useButton } from '@react-aria/button'
 import { useHover } from '@react-aria/interactions'
 import { useFocusRing } from '@react-aria/focus'
 import { mergeProps } from '@react-aria/utils'
 
-export function Button(props) {
+function Button(props, ref) {
   const { className, color = 'copper', disabled = false, children } = props
-  const ref = useRef()
   const { buttonProps, isPressed } = useButton(convertProps(props), ref)
-  const { hoverProps, isHovered } = useHover({ onHoverStart: () => {} })
+  const { hoverProps, isHovered } = useHover({
+    onHoverStart: () => {},
+    isDisabled: disabled,
+  })
   let { isFocusVisible, focusProps } = useFocusRing()
 
   const borderWidth = isFocusVisible ? 'border-4' : 'border-2'
   const colors = getColors(color)
-  const background = getBackground(
-    colors,
-    isPressed,
-    disabled ? false : isHovered // if disabled, then don't have the hover state
-  )
+  const background = getBackground(colors, isPressed, isHovered)
 
   return (
     <button
@@ -35,6 +33,9 @@ export function Button(props) {
     </button>
   )
 }
+
+const _Button = forwardRef(Button)
+export { _Button as Button }
 
 function DisabledOverlay({ borderWidth }) {
   const borderWidthN = borderWidth.replace('border-', '')
@@ -53,7 +54,11 @@ function DisabledOverlay({ borderWidth }) {
 
 // changes the name of any props that need to be changed
 function convertProps(props) {
-  return { ...props, isDisabled: props.disabled }
+  return {
+    ...props,
+    isDisabled: props.disabled,
+    onPress: props.onClick, // not sure if we'll keep this transformation
+  }
 }
 
 // takes in a colorPrefix and returns a className with all of the styles applied

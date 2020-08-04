@@ -1,6 +1,6 @@
 import React from 'react'
-import { Main, Button } from './'
-import useNumberOfCols from './useNumberOfCols'
+import { Main, Button } from '..'
+import useNumberOfCols from '../useNumberOfCols'
 
 export default { title: 'My Button' }
 
@@ -9,11 +9,7 @@ export const NormalButton = () => {
 
   return (
     <Main ref={ref}>
-      <Button
-        className={`${getColRange(nCols)} h-12`}
-        color="matisse-red"
-        disabled={true}
-      >
+      <Button className={`${getColRange(nCols)} h-12`} color="copper">
         Button
       </Button>
     </Main>
