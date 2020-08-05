@@ -1,3 +1,7 @@
+const sm = '360px'
+const md = '720px'
+const lg = '1440px'
+
 module.exports = {
   purge: [
     'src/*.js',
@@ -7,12 +11,9 @@ module.exports = {
     'src/**/*.tsx',
   ],
   theme: {
-    screens: {
-      sm: '360px',
-      md: '720px',
-      lg: '1440px',
-    },
+    screens: { sm, md, lg },
     extend: {
+      width: { sm, md, lg },
       colors: {
         'matisse-red': {
           100: '#FF6356',
