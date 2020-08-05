@@ -7,10 +7,10 @@ const Main = function Main({ children }, ref) {
   return (
     <main ref={ref} className="w-screen h-screen">
       <div
-        className="h-full w-sm md:w-md lg:w-lg
+        className="w-sm md:w-md lg:w-lg
           grid grid-cols-4 cols md:grid-cols-8 lg:grid-cols-12
-          m-auto gap-4 md:gap-6 lg:gap-6
-          p-5 md:p-5 lg:p-3
+          mx-auto gap-4 md:gap-6 lg:gap-6
+          px-5 md:px-5 lg:px-3
         "
       >
         {children}

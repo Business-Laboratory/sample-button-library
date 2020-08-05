@@ -14,6 +14,10 @@ module.exports = {
     screens: { sm, md, lg },
     extend: {
       width: { sm, md, lg },
+      minWidth: theme => ({
+        auto: 'auto',
+        ...theme('spacing'),
+      }),
       colors: {
         'matisse-red': {
           100: '#FF6356',
