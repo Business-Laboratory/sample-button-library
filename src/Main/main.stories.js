@@ -10,7 +10,7 @@ export const HighlightColumns = () => {
   return (
     <Main ref={ref}>
       {Array.from({ length: nCols }).map((_, idx) => (
-        <div key={idx} className="bg-gray-200" />
+        <div key={idx} className="bg-gray-200 h-screen" />
       ))}
     </Main>
   )

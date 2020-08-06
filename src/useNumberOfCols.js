@@ -1,5 +1,11 @@
 import useDimensions from 'react-use-dimensions'
-import { theme } from '../tailwind.config'
+
+// trying to get from tailwind.config.js caused an error
+const screenSizes = {
+  sm: 360,
+  md: 720,
+  lg: 1440,
+}
 
 // helper hook for getting the number of columns
 // this is not meant to be used outside of stories
@@ -13,5 +19,5 @@ export default function useNumberOfCols() {
 }
 
 function getBreakpoint(bp) {
-  return parseFloat(theme.screens[bp])
+  return screenSizes[bp]
 }

@@ -18,13 +18,11 @@ function Button(props, ref) {
   const colors = getColors(color)
   const background = getBackground(colors, isPressed, isHovered)
 
-  console.log(mergeProps(buttonProps, hoverProps, focusProps))
-
   return (
     <button
       className={classNames(
         className,
-        'relative uppercase focus:outline-none',
+        'relative uppercase focus:outline-none h-12 px-2',
         `${background} ${borderWidth} ${colors.border}`
       )}
       {...mergeProps(buttonProps, hoverProps, focusProps)}
