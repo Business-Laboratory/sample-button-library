@@ -7,7 +7,7 @@ import { mergeProps } from '@react-aria/utils'
 import { string, bool } from 'prop-types'
 import { Text } from '..'
 
-function Button(props, ref) {
+const Button = forwardRef(function Button(props, ref) {
   const { className, color = 'copper', disabled = false, children } = props
   const { buttonProps, isPressed } = useButton(convertProps(props), ref)
   const { hoverProps, isHovered } = useHover({
@@ -38,7 +38,7 @@ function Button(props, ref) {
       {disabled ? <DisabledOverlay borderWidth={borderWidth} /> : null}
     </button>
   )
-}
+})
 
 Button.propTypes = {
   className: string,
@@ -46,8 +46,7 @@ Button.propTypes = {
   disabled: bool,
 }
 
-const _Button = forwardRef(Button)
-export { _Button as Button }
+export { Button }
 
 function DisabledOverlay({ borderWidth }) {
   const borderWidthN = borderWidth.replace('border-', '')
