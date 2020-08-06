@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react'
 import classNames from 'classnames'
+import { string, elementType, oneOfType } from 'prop-types'
 
 // this component is not fully fleshed out, it's just here to add some typography
 function Text({ className, as, children }, ref) {
@@ -13,6 +14,11 @@ function Text({ className, as, children }, ref) {
       {children}
     </Component>
   )
+}
+
+Text.propTypes = {
+  className: string,
+  as: oneOfType([string, elementType]),
 }
 
 const _Text = forwardRef(Text)
