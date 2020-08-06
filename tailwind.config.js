@@ -11,6 +11,10 @@ module.exports = {
     'src/**/*.tsx',
   ],
   theme: {
+    fontFamily: {
+      display: ['Poppins', 'sans-serif'],
+      text: ['"Work Sans"', 'sans-serif'], // consider 'body' instead?
+    },
     screens: { sm, md, lg },
     extend: {
       width: { sm, md, lg },
