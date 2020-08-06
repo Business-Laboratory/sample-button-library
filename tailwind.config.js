@@ -11,6 +11,11 @@ module.exports = {
     'src/**/*.tsx',
   ],
   theme: {
+    fontFamily: {
+      display: ['Poppins', 'sans-serif'],
+      // Note, Work Sans must be quoted per the docs: https://tailwindcss.com/docs/font-family/#font-families
+      body: ['"Work Sans"', 'sans-serif'],
+    },
     screens: { sm, md, lg },
     extend: {
       width: { sm, md, lg },
