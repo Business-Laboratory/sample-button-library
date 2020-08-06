@@ -7,6 +7,7 @@ import postcss from 'rollup-plugin-postcss'
 import filesize from 'rollup-plugin-filesize'
 import autoprefixer from 'autoprefixer'
 import tailwindcss from 'tailwindcss'
+import typescript from '@rollup/plugin-typescript'
 
 import pkg from './package.json'
 
@@ -34,6 +35,7 @@ const PLUGINS = [
   }),
   commonjs(),
   filesize(),
+  typescript(),
 ]
 
 const EXTERNAL = ['react', 'react-dom', 'prop-types']
@@ -60,6 +62,7 @@ const config = OUTPUT_DATA.map(({ file, format }) => ({
     format,
     name: OUTPUT_NAME,
     globals: GLOBALS,
+    sourcemap: true,
   },
   external: EXTERNAL,
   plugins: PLUGINS,

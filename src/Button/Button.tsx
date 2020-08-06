@@ -1,4 +1,5 @@
-import React, { forwardRef } from 'react'
+//import React, { forwardRef } from 'react'
+import * as React from 'react'
 import classNames from 'classnames'
 import { useButton } from '@react-aria/button'
 import { useHover } from '@react-aria/interactions'
@@ -36,7 +37,7 @@ function Button(props, ref) {
   )
 }
 
-const _Button = forwardRef(Button)
+const _Button = React.forwardRef(Button)
 export { _Button as Button }
 
 function DisabledOverlay({ borderWidth }) {
