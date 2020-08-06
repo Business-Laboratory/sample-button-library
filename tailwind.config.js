@@ -14,7 +14,7 @@ module.exports = {
     fontFamily: {
       display: ['Poppins', 'sans-serif'],
       // Note, Work Sans must be quoted per the docs: https://tailwindcss.com/docs/font-family/#font-families
-      text: ['"Work Sans"', 'sans-serif'], // consider 'body' instead?
+      body: ['"Work Sans"', 'sans-serif'],
     },
     screens: { sm, md, lg },
     extend: {
