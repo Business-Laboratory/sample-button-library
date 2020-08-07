@@ -1,4 +1,3 @@
-//import React, { forwardRef } from 'react'
 import * as React from 'react'
 import classNames from 'classnames'
 import { useButton } from '@react-aria/button'
@@ -6,7 +5,10 @@ import { useHover } from '@react-aria/interactions'
 import { useFocusRing } from '@react-aria/focus'
 import { mergeProps } from '@react-aria/utils'
 
-function Button(props, ref) {
+function Button(
+  props: { className: string; color: string; disabled: boolean; children: any },
+  ref
+) {
   const { className, color = 'copper', disabled = false, children } = props
   const { buttonProps, isPressed } = useButton(convertProps(props), ref)
   const { hoverProps, isHovered } = useHover({
@@ -40,7 +42,8 @@ function Button(props, ref) {
 const _Button = React.forwardRef(Button)
 export { _Button as Button }
 
-function DisabledOverlay({ borderWidth }) {
+function DisabledOverlay(props: { borderWidth: string }) {
+  const { borderWidth } = props
   const borderWidthN = borderWidth.replace('border-', '')
   return (
     <div
