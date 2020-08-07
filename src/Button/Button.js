@@ -4,10 +4,9 @@ import { useButton } from '@react-aria/button'
 import { useHover } from '@react-aria/interactions'
 import { useFocusRing } from '@react-aria/focus'
 import { mergeProps } from '@react-aria/utils'
-import { string, bool } from 'prop-types'
 import { Text } from '..'
 
-const Button = forwardRef(function Button(props, ref) {
+function Button(props, ref) {
   const { className, color = 'copper', disabled = false, children } = props
   const { buttonProps, isPressed } = useButton(convertProps(props), ref)
   const { hoverProps, isHovered } = useHover({
@@ -38,15 +37,10 @@ const Button = forwardRef(function Button(props, ref) {
       {disabled ? <DisabledOverlay borderWidth={borderWidth} /> : null}
     </button>
   )
-})
-
-Button.propTypes = {
-  className: string,
-  color: string,
-  disabled: bool,
 }
 
-export { Button }
+const _Button = forwardRef(Button)
+export { _Button as Button }
 
 function DisabledOverlay({ borderWidth }) {
   const borderWidthN = borderWidth.replace('border-', '')
@@ -61,10 +55,6 @@ function DisabledOverlay({ borderWidth }) {
       }}
     />
   )
-}
-
-DisabledOverlay.propTypes = {
-  borderWidth: string.isRequired,
 }
 
 // changes the name of any props that need to be changed
