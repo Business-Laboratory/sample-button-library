@@ -4,6 +4,7 @@ import { useButton } from '@react-aria/button'
 import { useHover } from '@react-aria/interactions'
 import { useFocusRing } from '@react-aria/focus'
 import { mergeProps } from '@react-aria/utils'
+import { Text } from '../Text'
 
 function Button(
   props: {
@@ -30,13 +31,17 @@ function Button(
     <button
       className={classNames(
         className,
-        'relative uppercase focus:outline-none',
+        'relative uppercase focus:outline-none h-12 px-2',
         `${background} ${borderWidth} ${colors.border}`
       )}
       {...mergeProps(buttonProps, hoverProps, focusProps)}
       disabled={disabled}
     >
-      {children}
+      {typeof children === 'string' ? (
+        <Text className="text-lg font-normal">{children}</Text>
+      ) : (
+        children
+      )}
       {disabled ? <DisabledOverlay borderWidth={borderWidth} /> : null}
     </button>
   )

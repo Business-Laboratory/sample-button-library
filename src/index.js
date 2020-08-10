@@ -1,4 +1,3 @@
-import './styles.css'
-
-export { Main } from './Main'
+export * from './Main'
 export * from './Button'
+export * from './Text'

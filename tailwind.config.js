@@ -1,3 +1,7 @@
+const sm = '360px'
+const md = '720px'
+const lg = '1440px'
+
 module.exports = {
   purge: [
     'src/*.js',
@@ -7,12 +11,18 @@ module.exports = {
     'src/**/*.tsx',
   ],
   theme: {
-    screens: {
-      sm: '360px',
-      md: '720px',
-      lg: '1440px',
+    fontFamily: {
+      display: ['Poppins', 'sans-serif'],
+      // Note, Work Sans must be quoted per the docs: https://tailwindcss.com/docs/font-family/#font-families
+      body: ['"Work Sans"', 'sans-serif'],
     },
+    screens: { sm, md, lg },
     extend: {
+      width: { sm, md, lg },
+      minWidth: theme => ({
+        auto: 'auto',
+        ...theme('spacing'),
+      }),
       colors: {
         'matisse-red': {
           100: '#FF6356',
