@@ -30,7 +30,7 @@ function Button(props, ref) {
       disabled={disabled}
     >
       {typeof children === 'string' ? (
-        <Text className="text-lg font-normal">{children}</Text>
+        <Text variant="h4">{children}</Text>
       ) : (
         children
       )}
