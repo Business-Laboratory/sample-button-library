@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import classNames from 'classnames'
 
-// this component is not fully fleshed out, it's just here to add some typography
+// this is the variant approach to text
 function Text({ as, variant, children }, ref) {
   const Component = as ?? getHTMLElement(variant)
 

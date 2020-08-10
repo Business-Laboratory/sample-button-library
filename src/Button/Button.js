@@ -22,9 +22,9 @@ function Button(props, ref) {
   return (
     <button
       className={classNames(
-        className,
         'relative uppercase focus:outline-none h-12 px-2',
-        `${background} ${borderWidth} ${colors.border}`
+        `${background} ${borderWidth} ${colors.border}`,
+        className
       )}
       {...mergeProps(buttonProps, hoverProps, focusProps)}
       disabled={disabled}
