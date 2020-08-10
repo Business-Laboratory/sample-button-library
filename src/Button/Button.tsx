@@ -6,8 +6,13 @@ import { useFocusRing } from '@react-aria/focus'
 import { mergeProps } from '@react-aria/utils'
 
 function Button(
-  props: { className: string; color: string; disabled: boolean; children: any },
-  ref
+  props: {
+    className: string
+    color: string
+    disabled: boolean
+    children: React.ReactNode
+  },
+  ref: React.RefObject<HTMLElement>
 ) {
   const { className, color = 'copper', disabled = false, children } = props
   const { buttonProps, isPressed } = useButton(convertProps(props), ref)
@@ -20,8 +25,6 @@ function Button(
   const borderWidth = isFocusVisible ? 'border-4' : 'border-2'
   const colors = getColors(color)
   const background = getBackground(colors, isPressed, isHovered)
-
-  console.log(mergeProps(buttonProps, hoverProps, focusProps))
 
   return (
     <button
