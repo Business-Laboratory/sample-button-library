@@ -22,7 +22,7 @@ function Button(props, ref) {
   return (
     <button
       className={classNames(
-        'relative uppercase focus:outline-none h-12 px-2',
+        'relative uppercase focus:outline-none h-10 px-2',
         `${background} ${borderWidth} ${colors.border}`,
         className
       )}
@@ -30,7 +30,7 @@ function Button(props, ref) {
       disabled={disabled}
     >
       {typeof children === 'string' ? (
-        <Text variant="h4">{children}</Text>
+        <Text variant="bodyLarge">{children}</Text>
       ) : (
         children
       )}

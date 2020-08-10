@@ -5,7 +5,26 @@ import classNames from 'classnames'
 function Text({ as, variant, children }, ref) {
   const Component = as ?? getHTMLElement(variant)
 
-  var className
+  const className = getClassNames(variant)
+
+  return (
+    <Component
+      ref={ref}
+      className={classNames('text-gray-pink-400', className)}
+    >
+      {children}
+    </Component>
+  )
+}
+
+const getHTMLElement = variant => {
+  if (['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(variant)) {
+    return variant
+  } else return 'span'
+}
+
+const getClassNames = variant => {
+  let className
   switch (variant) {
     case 'h1':
       className = 'font-display font-bold text-6xl'
@@ -41,27 +60,7 @@ function Text({ as, variant, children }, ref) {
       className = ''
   }
 
-  return (
-    <Component
-      ref={ref}
-      className={classNames('text-gray-pink-400', className)}
-    >
-      {children}
-    </Component>
-  )
-}
-
-const getHTMLElement = variant => {
-  if (
-    variant === 'h1' ||
-    variant === 'h2' ||
-    variant === 'h3' ||
-    variant === 'h4' ||
-    variant === 'h5' ||
-    variant === 'h6'
-  ) {
-    return variant
-  } else return 'span'
+  return className
 }
 
 const _Text = forwardRef(Text)
