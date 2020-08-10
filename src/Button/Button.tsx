@@ -4,7 +4,7 @@ import { useButton } from '@react-aria/button'
 import { useHover } from '@react-aria/interactions'
 import { useFocusRing } from '@react-aria/focus'
 import { mergeProps } from '@react-aria/utils'
-import { Text } from '../Text'
+import { Text } from '../Text/Text'
 
 function Button(
   props: {
