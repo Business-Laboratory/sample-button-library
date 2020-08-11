@@ -22,15 +22,15 @@ function Button(props, ref) {
   return (
     <button
       className={classNames(
-        className,
-        'relative uppercase focus:outline-none h-12 px-2',
-        `${background} ${borderWidth} ${colors.border}`
+        'relative uppercase focus:outline-none h-10 px-2',
+        `${background} ${borderWidth} ${colors.border}`,
+        className
       )}
       {...mergeProps(buttonProps, hoverProps, focusProps)}
       disabled={disabled}
     >
       {typeof children === 'string' ? (
-        <Text className="text-lg font-normal">{children}</Text>
+        <Text variant="bodyLarge">{children}</Text>
       ) : (
         children
       )}
