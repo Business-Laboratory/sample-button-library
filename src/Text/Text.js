@@ -33,8 +33,9 @@ const getClassNames = variant => {
       return 'sm:font-display sm:font-thin sm:text-xl'
     case 'bodyLarge':
       return ` 
-      md:font-body md:font-medium md:text-lg 
-      sm:font-body sm:font-normal sm:text-base 
+      lg:font-body lg:font-medium lg:text-lg 
+      md:font-body md:font-normal md:text-base 
+      sm:font-body sm:font-light sm:text-sm
       `
     case 'bodyBase':
       return 'sm:font-body sm:font-normal sm:text-base'
