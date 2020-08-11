@@ -3,7 +3,7 @@ import classNames from 'classnames'
 
 // this is the variant approach to text
 function Text({ as, variant, children }, ref) {
-  const Component = as ?? getHTMLElement(variant)
+  const Component = as ?? 'span'
 
   const className = getClassNames(variant)
 
@@ -17,50 +17,34 @@ function Text({ as, variant, children }, ref) {
   )
 }
 
-const getHTMLElement = variant => {
-  if (['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(variant)) {
-    return variant
-  } else return 'span'
-}
-
 const getClassNames = variant => {
-  let className
   switch (variant) {
-    case 'h1':
-      className = 'font-display font-bold text-6xl'
-      break
-    case 'h2':
-      className = 'font-display font-semibold text-5xl'
-      break
-    case 'h3':
-      className = 'font-display font-medium text-4xl'
-      break
-    case 'h4':
-      className = 'font-display font-normal text-3xl'
-      break
-    case 'h5':
-      className = 'font-display font-light text-2xl'
-      break
-    case 'h6':
-      className = 'font-display font-thin text-xl'
-      break
+    case 'header1':
+      return 'sm:font-display sm:font-bold sm:text-6xl'
+    case 'header2':
+      return 'sm:font-display sm:font-semibold sm:text-5xl'
+    case 'header3':
+      return 'sm:font-display sm:font-medium sm:text-4xl'
+    case 'header4':
+      return 'sm:font-display sm:font-normal sm:text-3xl'
+    case 'header5':
+      return 'sm:font-display sm:font-light sm:text-2xl'
+    case 'header6':
+      return 'sm:font-display sm:font-thin sm:text-xl'
     case 'bodyLarge':
-      className = 'font-body font-medium text-lg'
-      break
+      return ` 
+      md:font-body md:font-medium md:text-lg 
+      sm:font-body sm:font-normal sm:text-base 
+      `
     case 'bodyBase':
-      className = 'font-body font-normal text-base'
-      break
+      return 'sm:font-body sm:font-normal sm:text-base'
     case 'bodySmall':
-      className = 'font-body font-light text-sm'
-      break
+      return 'sm:font-body sm:font-light sm:text-sm'
     case 'label':
-      className = 'font-body font-normal text-xs'
-      break
+      return 'sm:font-body sm:font-normal sm:text-xs'
     default:
-      className = ''
+      return ''
   }
-
-  return className
 }
 
 const _Text = forwardRef(Text)
