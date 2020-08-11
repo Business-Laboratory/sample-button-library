@@ -21,7 +21,7 @@
     "prestart": "npm run build:styles",
     "start": "npm run build -- -w",
     "prebuild": "NODE_ENV=production npm run build:styles",
-    "build": "npx rollup -c",
+    "build": "tsc --outDir dist && npx rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
     "prestorybook": "npm run build:styles",

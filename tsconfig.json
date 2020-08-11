@@ -6,7 +6,9 @@
     "jsx": "react", // use typescript to transpile jsx to js
     "target": "es5", // specify ECMAScript target version
     "allowJs": true, // allow a partial TypeScript and JavaScript codebase
-    "esModuleInterop": true
+    "esModuleInterop": true, //treats CommonJS/AMD/UMD modules similar to ES6 modules
+    "rootDir": "src" //longest common path of all non-declaration input files
   },
-  "include": ["./src/"]
+  "include": ["./src/"],
+  "exclude": ["dist"]
 }
