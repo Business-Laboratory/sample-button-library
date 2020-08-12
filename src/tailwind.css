@@ -2,26 +2,56 @@
 
 @tailwind components;
 
+.header1 {
+  @apply font-display font-bold text-6xl;
+}
+
+.header2 {
+  @apply font-display font-semibold text-5xl;
+}
+
+.header3 {
+  @apply font-display font-medium text-4xl;
+}
+
+.header4 {
+  @apply font-display font-normal text-3xl;
+}
+
+.header5 {
+  @apply font-display font-light text-2xl;
+}
+
+.header6 {
+  @apply font-display font-thin text-xl;
+}
+
 .bodyLarge {
-  @apply font-body;
-  @apply font-light;
-  @apply text-sm;
+  @apply font-body font-light text-sm;
 }
 
 @screen md {
   .bodyLarge {
-    @apply font-body;
-    @apply font-normal;
-    @apply text-base;
+    @apply font-body font-normal text-base;
   }
 }
 
 @screen lg {
   .bodyLarge {
-    @apply font-body;
-    @apply font-medium;
-    @apply text-lg;
+    @apply font-body font-medium text-lg;
   }
+}
+
+.bodyBase {
+  @apply font-body font-normal text-base;
+}
+
+.bodySmall {
+  @apply font-body font-light text-sm;
+}
+
+.label {
+  @apply font-body font-normal text-xs;
 }
 
 @tailwind utilities;

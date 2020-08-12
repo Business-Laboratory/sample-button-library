@@ -1,6 +1,6 @@
 const sm = '360px'
 const md = '720px'
-const lg = '1440px'
+const lg = '1200px'
 
 module.exports = {
   purge: [
