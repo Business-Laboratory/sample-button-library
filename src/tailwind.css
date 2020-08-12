@@ -3,55 +3,77 @@
 @tailwind components;
 
 .header1 {
-  @apply font-display font-bold text-6xl;
+  font-family: theme('fontFamily.display');
+  font-size: theme('fontSize.6xl');
+  font-weight: theme('fontWeight.bold');
 }
 
 .header2 {
-  @apply font-display font-semibold text-5xl;
+  font-family: theme('fontFamily.display');
+  font-size: theme('fontSize.5xl');
+  font-weight: theme('fontWeight.semibold');
 }
 
 .header3 {
-  @apply font-display font-medium text-4xl;
+  font-family: theme('fontFamily.display');
+  font-size: theme('fontSize.4xl');
+  font-weight: theme('fontWeight.medium');
 }
 
 .header4 {
-  @apply font-display font-normal text-3xl;
+  font-family: theme('fontFamily.display');
+  font-size: theme('fontSize.3xl');
+  font-weight: theme('fontWeight.normal');
 }
 
 .header5 {
-  @apply font-display font-light text-2xl;
+  font-family: theme('fontFamily.display');
+  font-size: theme('fontSize.2xl');
+  font-weight: theme('fontWeight.light');
 }
 
 .header6 {
-  @apply font-display font-thin text-xl;
+  font-family: theme('fontFamily.display');
+  font-size: theme('fontSize.xl');
+  font-weight: theme('fontWeight.thin');
 }
 
 .bodyLarge {
-  @apply font-body font-light text-sm;
+  font-family: theme('fontFamily.body');
+  font-size: theme('fontSize.sm');
+  font-weight: theme('fontWeight.light');
 }
 
 @screen md {
   .bodyLarge {
-    @apply font-body font-normal text-base;
+    font-size: theme('fontSize.base');
+    font-weight: theme('fontWeight.normal');
   }
 }
 
 @screen lg {
   .bodyLarge {
-    @apply font-body font-medium text-lg;
+    font-size: theme('fontSize.lg');
+    font-weight: theme('fontWeight.medium');
   }
 }
 
 .bodyBase {
-  @apply font-body font-normal text-base;
+  font-family: theme('fontFamily.body');
+  font-size: theme('fontSize.base');
+  font-weight: theme('fontWeight.normal');
 }
 
 .bodySmall {
-  @apply font-body font-light text-sm;
+  font-family: theme('fontFamily.body');
+  font-size: theme('fontSize.sm');
+  font-weight: theme('fontWeight.light');
 }
 
 .label {
-  @apply font-body font-normal text-xs;
+  font-family: theme('fontFamily.body');
+  font-size: theme('fontSize.xs');
+  font-weight: theme('fontWeight.normal');
 }
 
 @tailwind utilities;
