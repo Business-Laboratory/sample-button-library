@@ -1,15 +1,15 @@
 import * as React from 'react'
 import classNames from 'classnames'
 
+type TextPropTypes = {
+  as?: React.ElementType | string
+  variant: string
+  children: React.ReactNode
+}
+type RefType = React.Ref<HTMLElement>
+
 // this is the variant approach to text
-function Text(
-  props: {
-    as?: any
-    variant: string
-    children: React.ReactNode
-  },
-  ref: React.RefObject<HTMLElement>
-) {
+function Text(props: TextPropTypes, ref: RefType) {
   const { variant, as, children } = props
   const Component = as ?? 'span'
 

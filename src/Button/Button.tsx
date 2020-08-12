@@ -6,17 +6,21 @@ import { useFocusRing } from '@react-aria/focus'
 import { mergeProps } from '@react-aria/utils'
 import { Text } from '../Text/Text'
 
-function Button(
-  props: {
-    className: string
-    color: string
-    disabled: boolean
-    children: React.ReactNode
-  },
-  ref: React.RefObject<HTMLElement>
-) {
+type ButtonPropTypes = {
+  className: string
+  color: string
+  disabled: boolean
+  children: React.ReactNode
+  onClick: () => void
+}
+type RefType = React.Ref<HTMLElement>
+
+function Button(props: ButtonPropTypes, ref: RefType) {
   const { className, color = 'copper', disabled = false, children } = props
-  const { buttonProps, isPressed } = useButton(convertProps(props), ref)
+  const { buttonProps, isPressed } = useButton(
+    convertProps(props),
+    ref as React.RefObject<HTMLElement>
+  )
   const { hoverProps, isHovered } = useHover({
     onHoverStart: () => {},
     isDisabled: disabled,
@@ -67,7 +71,7 @@ function DisabledOverlay(props: { borderWidth: string }) {
 }
 
 // changes the name of any props that need to be changed
-function convertProps(props) {
+function convertProps(props: ButtonPropTypes) {
   return {
     ...props,
     isDisabled: props.disabled,
@@ -77,7 +81,7 @@ function convertProps(props) {
 
 // takes in a colorPrefix and returns a className with all of the styles applied
 // we have to list out all of the colors to avoid them being purged
-function getColors(colorPrefix) {
+function getColors(colorPrefix: string) {
   switch (colorPrefix) {
     case 'matisse-red': {
       return {
@@ -135,7 +139,20 @@ function getColors(colorPrefix) {
   }
 }
 
-function getBackground(backgroundColors, isPressed, isHovered) {
+type BackgroundColorsTypes = {
+  100: string
+  200: string
+  300: string
+  border: string
+}
+type IsPressedType = boolean
+type IsHoveredType = boolean
+
+function getBackground(
+  backgroundColors: BackgroundColorsTypes,
+  isPressed: IsPressedType,
+  isHovered: IsHoveredType
+) {
   return isPressed
     ? backgroundColors[300]
     : isHovered

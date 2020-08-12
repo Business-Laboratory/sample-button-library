@@ -7,8 +7,16 @@
     "target": "es5", // specify ECMAScript target version
     "allowJs": true, // allow a partial TypeScript and JavaScript codebase
     "esModuleInterop": true, //treats CommonJS/AMD/UMD modules similar to ES6 modules
-    "rootDir": "src" //longest common path of all non-declaration input files
+    "rootDir": "src", //longest common path of all non-declaration input files,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true
   },
   "include": ["./src/"],
-  "exclude": ["dist"]
+  "exclude": ["dist", "**/*.stories.js"]
 }

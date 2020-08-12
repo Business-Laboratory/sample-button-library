@@ -2,10 +2,10 @@
   "name": "sample-button-library",
   "version": "0.1.0",
   "description": "Sample library for creating a button component",
-  "main": "build/index.cjs.js",
-  "module": "build/index.esm.js",
-  "browser": "build/index.js",
-  "style": "build/index.css",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.js",
+  "style": "dist/index.css",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Business-Laboratory/sample-button-library.git"
