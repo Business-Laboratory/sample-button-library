@@ -2,6 +2,28 @@
 
 @tailwind components;
 
+.bodyLarge {
+  @apply font-body;
+  @apply font-light;
+  @apply text-sm;
+}
+
+@screen md {
+  .bodyLarge {
+    @apply font-body;
+    @apply font-normal;
+    @apply text-base;
+  }
+}
+
+@screen lg {
+  .bodyLarge {
+    @apply font-body;
+    @apply font-medium;
+    @apply text-lg;
+  }
+}
+
 @tailwind utilities;
 
 /* I just added all of the styles, we may need to narrow this down */

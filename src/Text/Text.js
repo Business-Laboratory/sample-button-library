@@ -2,10 +2,8 @@ import React, { forwardRef } from 'react'
 import classNames from 'classnames'
 
 // this is the variant approach to text
-function Text({ as, variant, children }, ref) {
+function Text({ as, children, className }, ref) {
   const Component = as ?? 'span'
-
-  const className = getClassNames(variant)
 
   return (
     <Component
