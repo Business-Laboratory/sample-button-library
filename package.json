@@ -2,10 +2,10 @@
   "name": "sample-button-library",
   "version": "0.1.0",
   "description": "Sample library for creating a button component",
-  "main": "build/index.cjs.js",
-  "module": "build/index.esm.js",
-  "browser": "build/index.js",
-  "style": "build/index.css",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.js",
+  "style": "dist/index.css",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Business-Laboratory/sample-button-library.git"
@@ -21,7 +21,7 @@
     "prestart": "npm run build:styles",
     "start": "npm run build -- -w",
     "prebuild": "NODE_ENV=production npm run build:styles",
-    "build": "npx rollup -c",
+    "build": "tsc --outDir dist && npx rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
     "prestorybook": "npm run build:styles",
@@ -40,12 +40,15 @@
     "@react-aria/focus": "^3.1.0",
     "@react-aria/interactions": "^3.1.0",
     "@react-aria/utils": "^3.1.0",
-    "@storybook/addon-knobs": "^5.3.19",
+    "@types/classnames": "^2.2.10",
+    "@types/react": "^16.9.44",
+    "@types/react-dom": "^16.9.8",
     "classnames": "^2.2.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-use-dimensions": "^1.2.1",
     "tailwindcss": "^1.6.2",
+    "ts-loader": "^8.0.2",
     "typescript": "^3.9.7"
   },
   "devDependencies": {
@@ -60,12 +63,14 @@
     "@rollup/plugin-commonjs": "^14.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^8.4.0",
+    "@rollup/plugin-typescript": "^5.0.2",
     "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-knobs": "^5.3.19",
     "@storybook/addon-links": "^5.3.19",
     "@storybook/addons": "^5.3.19",
     "@storybook/react": "^5.3.19",
-    "@typescript-eslint/eslint-plugin": "^3.7.1",
-    "@typescript-eslint/parser": "^3.7.1",
+    "@typescript-eslint/eslint-plugin": "^3.8.0",
+    "@typescript-eslint/parser": "^3.8.0",
     "autoprefixer": "^9.8.5",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.1.0",
@@ -85,6 +90,8 @@
     "rollup": "^2.21.0",
     "rollup-plugin-filesize": "^9.0.2",
     "rollup-plugin-postcss": "^3.1.3",
-    "rollup-plugin-terser": "^6.1.0"
+    "rollup-plugin-terser": "^6.1.0",
+    "source-map-loader": "^1.0.1",
+    "tslib": "^2.0.0"
   }
 }

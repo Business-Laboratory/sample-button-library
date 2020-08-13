@@ -1,8 +1,16 @@
-import React, { forwardRef } from 'react'
+import * as React from 'react'
 import classNames from 'classnames'
 
+type TextPropTypes = {
+  as?: React.ElementType | string
+  variant: string
+  children: React.ReactNode
+}
+type RefType = React.Ref<HTMLElement>
+
 // this is the variant approach to text
-function Text({ as, variant, children }, ref) {
+function Text(props: TextPropTypes, ref: RefType) {
+  const { variant, as, children } = props
   const Component = as ?? 'span'
 
   const className = getClassNames(variant)
@@ -17,7 +25,7 @@ function Text({ as, variant, children }, ref) {
   )
 }
 
-const getClassNames = variant => {
+const getClassNames = (variant: string) => {
   switch (variant) {
     case 'header1':
       return 'sm:font-display sm:font-bold sm:text-6xl'
@@ -48,5 +56,5 @@ const getClassNames = variant => {
   }
 }
 
-const _Text = forwardRef(Text)
+const _Text = React.forwardRef(Text)
 export { _Text as Text }
