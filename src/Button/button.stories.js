@@ -1,7 +1,6 @@
 import React from 'react'
 import { Button } from '..'
 
-const defaultColor = 'copper'
 const options = [
   'copper',
   'matisse-red',
@@ -19,7 +18,7 @@ export const Default = args => (
 
 Default.args = {
   disabled: false,
-  color: defaultColor,
+  color: 'copper',
 }
 
 export default {
