@@ -1,16 +1,7 @@
 import React from 'react'
 import { Button } from '..'
-import { withKnobs, boolean, select } from '@storybook/addon-knobs'
 
-export default {
-  title: 'Button',
-  decorators: [
-    withKnobs,
-    story => <div className="p-4 flex justify-center">{story()}</div>,
-  ],
-}
-
-const label = 'Colors'
+const defaultColor = 'copper'
 const options = [
   'copper',
   'matisse-red',
@@ -19,16 +10,30 @@ const options = [
   'matisse-blue',
   'calico-orange',
 ]
-const defaultValue = 'copper'
 
-export const Default = () => {
-  return (
-    <Button
-      className="min-w-40 md:min-w-40 lg:min-w-48"
-      color={select(label, options, defaultValue)}
-      disabled={boolean('Disabled', false)}
-    >
-      Button
-    </Button>
-  )
+export const Default = args => (
+  <Button className="min-w-40 md:min-w-40 lg:min-w-48" {...args}>
+    Button
+  </Button>
+)
+
+Default.args = {
+  disabled: false,
+  color: defaultColor,
+}
+
+export default {
+  title: 'Button',
+  component: Default,
+  decorators: [
+    story => <div className="p-4 flex justify-center">{story()}</div>,
+  ],
+  argTypes: {
+    color: {
+      control: {
+        type: 'select',
+        options: options,
+      },
+    },
+  },
 }
